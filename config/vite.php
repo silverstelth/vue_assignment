@@ -16,6 +16,7 @@ return [
                 'ssr' => 'resources/scripts/ssr.ts',
                 'paths' => [
                     'resources/css/tailwind.css',
+                    'resources/scss/main.scss',
                     'resources/scripts/main.ts',
                     'resources/js/app.js',
                 ],
