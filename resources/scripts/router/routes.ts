@@ -1,15 +1,31 @@
-import Loading from '@/scripts/views/Loading.vue'
-import Login from '@/scripts/views/Login.vue'
+import Profile from "@/scripts/views/Profile.vue"
+import Signin from "@/scripts/views/Signin.vue"
 
 export default [
     {
-        path: '/',
-        name: 'home',
-        component: Loading
+        path: "/",
+        meta: {
+            guestOnly: true
+        },
+        children: [
+            {
+                path: "/login",
+                name: "login",
+                component: Signin,
+            }
+        ]
     },
     {
-        path: '/login',
-        name: 'login',
-        component: Login
+        path: "/",
+        meta: {
+            authOnly: true
+        },
+        children: [
+            {
+                path: "/profile",
+                name: "profile",
+                component: Profile
+            }
+        ]
     }
 ];
