@@ -1,0 +1,39 @@
+#page-container {
+    &.page-container-fixed {
+        #page-header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: $zindex-fixed;
+            min-width: 320px;
+            max-width: 100%;
+            width: auto;
+            box-shadow: 0 .125rem .375rem rgba(0,0,0,.02);
+        }
+
+        @include media-breakpoint-up(lg) {
+            &.sidebar-mini.sidebar-o #page-header {
+                padding-left: $sidebar-mini-width;
+
+                .overlay-header {
+                    left: $sidebar-mini-width;
+                }
+            }
+        }
+    }
+
+    #main-container {
+        padding-top: $header-height;
+    }
+
+    @include media-breakpoint-up(lg) {
+        &.sidebar-o {
+            padding-left: $sidebar-width;
+        }
+        
+        &.sidebar-mini.sidebar-o {
+            padding-left: $sidebar-mini-width;
+        }
+    }
+}

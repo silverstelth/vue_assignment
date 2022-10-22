@@ -1,5 +1,7 @@
+import BaseLayout from "@/scripts/layouts/BaseLayout.vue"
 import Profile from "@/scripts/views/Profile.vue"
 import Signin from "@/scripts/views/Signin.vue"
+import Payment from "@/scripts/views/Payment.vue"
 
 export default [
     {
@@ -17,6 +19,7 @@ export default [
     },
     {
         path: "/",
+        component: BaseLayout,
         meta: {
             authOnly: true
         },
@@ -25,7 +28,12 @@ export default [
                 path: "/profile",
                 name: "profile",
                 component: Profile
+            },
+            {
+                path: "/payment",
+                name: "payment",
+                component: Payment
             }
         ]
-    }
+    },
 ];

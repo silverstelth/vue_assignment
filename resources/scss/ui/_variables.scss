@@ -1,0 +1,22 @@
+$body-bg: #ebeef2;
+$body-bg-light: lighten($body-bg, 3%);
+
+
+$zindex-sidebar: $zindex-fixed + 2 !default;
+$zindex-toastr: $zindex-fixed + 3 !default;
+
+$sidebar-bg: $white !default;
+$sidebar-width: 240px !default;
+$sidebar-mini-width: 60px !default;
+
+$side-transition: 0.28s ease-out !default;
+
+
+$space-base: 1.375rem !default;
+$space-side: 1.25rem !default;
+$space-mobile: 1rem !default;
+
+
+$header-height: 4rem !default; // Best values > 3rem and < 5rem
+$header-bg: $white !default;
+$header-dark-bg: theme-color("primary") !default;

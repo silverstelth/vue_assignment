@@ -18,10 +18,16 @@
         "@popperjs/core": "^2.11.6",
         "@types/node": "^18.11.2",
         "@vitejs/plugin-vue": "^3.1.2",
+        "@vueform/vueform": "file:packages/vueform",
         "bootstrap": "^5.2.2",
         "bootstrap-vue-3": "^0.3.12",
+        "moment": "^2.29.4",
+        "simplebar": "^5.3.9",
+        "simplebar-vue3": "^0.2.0",
+        "vee-validate": "^4.7.0",
         "vue": "^3.2.41",
         "vue-router": "^4.1.5",
+        "vue3-datepicker": "^0.3.4",
         "vuex": "^4.1.0"
     }
 }

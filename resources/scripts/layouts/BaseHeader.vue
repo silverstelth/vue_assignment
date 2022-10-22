@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header id="page-header">
         <slot>
             <div class="tw-h-16 tw-px-5 tw-flex tw-flex-row-reverse">
 				<div class="tw-flex tw-items-center">
@@ -8,6 +8,7 @@
 						right
 						no-caret
 						ref="oneDropdownDefaultUser"
+						toggle-class="tw-bg-gray-500"
 					>
 						<template #button-content>
 							<div class="tw-flex tw-items-center tw-text-base">
@@ -48,10 +49,16 @@
 								></p>
 							</template>
 							<b-dropdown-item 
-								href="/profile"
+								:to="{path: '/profile'}"
 								link-class="tw-font-medium tw-px-3 tw-py-2"
 							>
 								<i class="far fa-user-circle tw-mr-2"></i>Profile
+							</b-dropdown-item>
+							<b-dropdown-item 
+								:to="{path: '/payment'}"
+								link-class="tw-font-medium tw-px-3 tw-py-2"
+							>
+								<i class="far fa-credit-card tw-mr-2"></i>Payment
 							</b-dropdown-item>
 							<b-dropdown-divider></b-dropdown-divider>
 							<b-dropdown-item-button

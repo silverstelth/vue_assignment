@@ -1,3 +1,8 @@
+:root {
+    --bs-body-bg: #ebeef2;
+}
+
+
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
@@ -8,4 +13,10 @@
 @import "@fortawesome/fontawesome-free/scss/brands";
 
 
+@import "mixins/content";
 @import "ui/variables";
+@import "ui/layout";
+@import "ui/layout-variations";
+@import "ui/nav-main";
+@import "ui/header";
+@import "ui/sidebar";

@@ -67,7 +67,7 @@ export default {
         return {
             username,
             onSubmit() {
-                store.dispatch('auth/signin', { name: username.value?.value })
+                store.dispatch('auth/save', { name: username.value?.value })
                 .then((res) => {
                     if (res) {
                         router.push("profile")
