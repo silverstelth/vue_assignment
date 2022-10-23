@@ -3,3 +3,8 @@ export const genderOptions = [
     { value: 2, text: 'Female' },
     { value: 3, text: 'Other' }
 ]
+
+export const countryOptions = [
+    { value: 'usa', text: 'United State' },
+    { value: 'ro', text: 'Romania' }
+]

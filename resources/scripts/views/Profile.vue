@@ -19,7 +19,7 @@
                             v-model="form.name"
                             :state="validateName"
                         ></b-form-input>
-                        <b-form-invalid-feedback :state="validateName">
+                        <b-form-invalid-feedback :state="validateName" v-if="validateName !== null">
                             Your name must be more 2 characters long.
                         </b-form-invalid-feedback>
                     </b-form-group>
@@ -41,9 +41,9 @@
                             :state="validateDateOfBirth"
                             id="dateofbirth"
                             v-model="form.dateofbirth"
-                            :class="`form-control ${validateDateOfBirth ? 'is-valid' : 'is-invalid'}`"
+                            :class="`form-control ${validateDateOfBirth === null ? '' : (validateDateOfBirth ? 'is-valid' : 'is-invalid')}`"
                         ></datepicker>
-                        <b-form-invalid-feedback :state="validateDateOfBirth">
+                        <b-form-invalid-feedback :state="validateDateOfBirth" v-if="validateDateOfBirth !== null">
                             Your birthday must be larger than before 18 years.
                         </b-form-invalid-feedback>
                     </b-form-group>
@@ -68,7 +68,7 @@
 </style>
 
 <script lang="ts" setup>
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { genderOptions } from "@/scripts/data/constant"
 import Datepicker from "vue3-datepicker"
 import { useStore } from 'vuex'
@@ -78,6 +78,11 @@ import moment from 'moment'
 
 const store = useStore()
 const toast = useToast()
+const submitted = ref(false)
+
+onMounted(() => {
+    submitted.value = false
+})
 
 onMounted(() => {
     const user = store.getters['auth/user']
@@ -96,10 +101,12 @@ const form = reactive({
     password_confirmation: '',
 })
 
-const validateName = computed(() => form.name.length > 2)
-const validateDateOfBirth = computed(() => moment(form.dateofbirth).isBefore(moment().subtract(18, 'years')))
+const validateName = computed(() => submitted.value ? (form.name.length > 2) : null)
+const validateDateOfBirth = computed(() => submitted.value ? moment(form.dateofbirth).isBefore(moment().subtract(18, 'years')) : null)
 
 const onSubmit = () => {
+    submitted.value = true
+
     if (!validateName.value ||
         !validateDateOfBirth.value)
         return
@@ -113,10 +120,6 @@ const onSubmit = () => {
             toast?.success({body: 'Updated Success'})
         }
     })
-}
-
-const handleSubmit = () => {
-
 }
 
 const onReset = () => {
